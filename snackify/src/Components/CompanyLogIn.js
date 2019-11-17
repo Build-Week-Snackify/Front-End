@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import {axiosWithLoginAuth} from '../Utils/axiosWithLoginAuth';
+import  {connect} from 'react-redux';
 
 
 const Page = styled.div `
@@ -25,10 +26,11 @@ const H2 = styled.h2 `
 `
 
 function CompanyLogin(props) {
+    console.log(props)
 const [user, setUser] =useState({
     username: '',
-    password: ''
-
+    password: '',
+    company: false
 })
  
 const onChange = e => 
@@ -63,5 +65,12 @@ return(
  )
 }
 
-export default CompanyLogin
+
+const mapStateToProps = state =>{
+    return {
+        
+    };
+}
+
+export default connect(mapStateToProps, {})(CompanyLogin);
 

@@ -31,6 +31,7 @@ export default function NavBar() {
             <Navigation className='NavLink div'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/CompanyOrEmployee">Login</NavLink>
+                <NavLink to="/Register">Sign Up</NavLink>
             </Navigation>
         )
     }
