@@ -8,7 +8,9 @@ import {
 const initState = {
     order: [],
     suggestions: [],
-    snacks: [],
+    snacks: [
+        { Name: 'Cheetos', Calories: '310 per serving', Fat: '21g per serving', Sugar: '2g per serving', Protien: '3g per serving', Carbs: "25g per serving", Allergens: "Milk Ingredients", Weight: '28g', Price: "$1.00" }, { Name: 'Kapop Chips', Calories: '110 per serving', Fat: '4g per serving', Sugar: '1g per serving', Protien: '3g per serving', Carbs: "17g per serving", Allergens: "Dairy, Wheat, Soy", Weight: '28g', Price: "$1.00" },{ Name: 'Nature Valley Bar', Calories: '190 per serving', Fat: '6g per serving', Sugar: '12g per serving', Protien: '4g per serving', Carbs: "29g per serving", Allergens: "Soy, Nut Products", Weight: '28g', Price: "$1.00" }
+    ],
 };
 
 export const snackReducer = (state = initState, action) => {
