@@ -30,7 +30,7 @@ export const addSnackToSuggestions = (user, snack) => dispatch => {
 };
 
 export const ADD_SNACK_TO_ORDER = 'add_snack_to_order';
-export const addSnackToCompany = (user, snack) => dispatch => {
+export const addSnackToOrder= (user, snack) => dispatch => {
     axiosWithLoginAuth
         .post(``)
         .then(res => {

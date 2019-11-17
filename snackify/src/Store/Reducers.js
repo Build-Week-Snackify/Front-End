@@ -3,7 +3,7 @@ import {
     UPDATE_SUGGESTIONS,
     ADD_SNACK_TO_SUGGESTIONS,
     ADD_SNACK_TO_ORDER,
-} from '../actions/snackActions';
+} from './Actions';
 
 const initState = {
     order: [],
@@ -22,11 +22,6 @@ export const snackReducer = (state = initState, action) => {
             return {
                 ...state,
                 suggestions: action.payload,
-            };
-        case GET_ALL_SNACKS:
-            return {
-                ...state,
-                snacks: action.payload,
             };
         case ADD_SNACK_TO_SUGGESTIONS:
             return {
