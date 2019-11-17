@@ -1,15 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import HomePage from './Components/HomePage';
 import CompEmp from './Components/CompEmp';
 import './App.css';
 import NavBar from './Components/NavBar';
 import CompanyLogIn from './Components/CompanyLogIn';
 import EmployeeLogIn from './Components/EmployeeLogIn';
-import CompSelect from './Components/EmployeeCompSelect'
+import CompSelect from './Components/EmployeeCompSelect';
+import PrivateRoute from './Components/PrivateRoute';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <NavBar />
@@ -19,11 +21,18 @@ function App() {
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
           <Route exact path='/CompanyLogIn' component={CompanyLogIn} />
           <Route exact path='/EmployeeLogIn' component={EmployeeLogIn} />
-          <Route exact path='/CompanySelect' component={CompSelect} />
+          <PrivateRoute exact path='/Company-Select' component={CompSelect} />
         </Switch>
       </Router>
     </div>
   );
 }
+const mapStateToProps = state => {
+  return {
+    loggedInStatus: state,  
+  };
+};
 
-export default App;
+export default connect(
+  mapStateToProps,
+)(App);

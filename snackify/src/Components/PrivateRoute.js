@@ -8,7 +8,7 @@ function PrivateRoute(props){
 	} = props
 	return(
 		<Route {...rest} render ={(renderProps)=>{
-			if (localStorage.getItem('SnackToken')) {
+			if (localStorage.getItem('token')) {
 				return <Component {...renderProps} />
 			} else {
 				return  <Redirect to='/CompanyOrEmployee' />
