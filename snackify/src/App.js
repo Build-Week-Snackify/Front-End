@@ -7,6 +7,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import CompanyLogIn from './Components/CompanyLogIn';
 import EmployeeLogIn from './Components/EmployeeLogIn';
+import CompSelect from './Components/EmployeeCompSelect'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
           <Route exact path='/CompanyLogIn' component={CompanyLogIn} />
           <Route exact path='/EmployeeLogIn' component={EmployeeLogIn} />
+          <Route exact path='/CompanySelect' component={CompSelect} />
         </Switch>
       </Router>
     </div>
