@@ -42,7 +42,7 @@ const onChange = e =>
         .post(`/login`, user)
         .then(result => {
             console.log(result)
-            localStorage.setItem("token", result.data.payload);    
+            localStorage.setItem("SnackToken", result.data.payload);    
            props.history.push("/Company-Data");
     })
    }
