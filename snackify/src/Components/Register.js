@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { axiosWithLoginAuth } from '../Utils/axiosWithLoginAuth'
+import { axiosWithLoginAuth } from '../Utils/axiosWithLoginAuth';
+import styled from 'styled-components';
 
+const Form = styled.form`
+    background: white;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width:50%;
+`
+const Input = styled.input`
+    margin: 20px 10px;
+`
 const Register = (props) => {
     const [company, setCompany] = useState({
         name: '',
@@ -12,6 +26,7 @@ const Register = (props) => {
         companyName: '',
         goodSignUp: false
     });
+
 
     const onChange = e =>
         setCompany({ ...company, [e.target.name]: e.target.value });
@@ -24,40 +39,54 @@ const Register = (props) => {
         }
         if (company.password.length < 6) {
             alert("Password needs to be at least 6 characters long")
-            return(null)
+            return (null)
         }
         else {
             console.log(company)
             e.preventDefault();
-            props.history.push("/Company-Data");
+            props.history.push("/CompanyData");
             axiosWithLoginAuth()
                 .post(`/companies`, company)
                 .then(result => {
                     console.log(result)
                     localStorage.setItem("SnackToken", result.data.payload);
-                    props.history.push("/Company-Data");
+                    props.history.push("/CompanyData");
                 })
         }
     }
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <>
             <h2>Sign Up!</h2>
-            <label>Full Name</label>
-            <input type="text" name="name" onChange={onChange} />
-            <label>Email: </label>
-            <input type="email" name="email" onChange={onChange} />
-            <label> Password: </label>
-            <input name="password" type="password" onChange={onChange} />
-            <label>confirm Password</label>
-            <input name="confirm" type="password" onChange={onChange} />
-            <label>Sign up code for employees</label>
-            <input name="signUpCode" type="text" onChange={onChange} />
-            <label>Company Name</label>
-            <input name="companyName" type="text" onChange={onChange} />
-            <button onClick={() => handleSubmit}>Login</button>
-        </form>
+            <Form onSubmit={handleSubmit}>
+                <div>
+                    <label>Full Name:</label>
+                    <Input type="text" name="name" onChange={onChange} />
+                </div>
+                <div>
+                    <label>Email: </label>
+                    <Input type="email" name="email" onChange={onChange} />
+                </div>
+                <div>
+                    <label> Password: </label>
+                    <Input name="password" type="password" onChange={onChange} />
+                </div>
+                <div>
+                    <label>Confirm Password:</label>
+                    <Input name="confirm" type="password" onChange={onChange} />
+                </div>
+                <div>
+                    <label>Sign up code for employees:</label>
+                    <Input name="signUpCode" type="text" onChange={onChange} />
+                </div>
+                <div>
+                    <label>Company Name:</label>
+                    <Input name="companyName" type="text" onChange={onChange} />
+                </div>
+                <button onClick={() => handleSubmit}>Login</button>
+            </Form>
+        </>
     )
 }
 const mapStateToProps = state => {
