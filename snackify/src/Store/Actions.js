@@ -21,12 +21,12 @@ export const getCompanySuggestions = user => dispatch => {
 };
 
 export const ADD_SNACK_TO_SUGGESTIONS = 'add_snacks_to_suggested';
-export const addSnackToSuggestions = (user, snack) => dispatch => {
-    axiosWithLoginAuth
-        .post(``)
-        .then(res => {
+export const addSnackToSuggestions = (snack) => dispatch => {
+    // axiosWithLoginAuth
+        // .post(``)
+        // .then(res => {
             dispatch({ type: ADD_SNACK_TO_SUGGESTIONS, payload: snack });
-        });
+        // });
 };
 
 export const ADD_SNACK_TO_ORDER = 'add_snack_to_order';
