@@ -47,11 +47,11 @@ function EmployeeLogin(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.loginUser()
-        // localStorage.setItem("token", user);
-        // console.log(user)
-        // e.preventDefault();
-        // props.history.push("/EmployeeSnack");
+        props.loginUser(user)
+        localStorage.setItem("token", user);
+        console.log(user)
+        e.preventDefault();
+        props.history.push("/EmployeeSnack");
         // axiosWithLoginAuth()
         //     .post(`/login`, user)
         //     .then(result => {
