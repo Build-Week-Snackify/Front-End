@@ -35,7 +35,7 @@ const Snack = (props) => {
             </div> : null}
             <button onClick={() => setDetails(!details)} >{details ? "Show Less" : "Show Details"}</button>
             {!suggested ?
-                <button onClick={() => props.addSnackToSuggestions(props.snack) && setSuggested(!suggested)}> Request </button> :
+                <button onClick={() => props.addSnackToSuggestions(props.user.name) && setSuggested(!suggested)}> Request </button> :
                 <button onClick={() => props.suggestions.splice(props.suggestions.indexOf(props.snack.Name), 1) && setSuggested(!suggested)}> Cancel Request </button>
             }
         </SnackDisplay >
@@ -47,7 +47,8 @@ const Snack = (props) => {
 const mapStateToProps = state => {
     console.log(state)
     return {
-        suggestions: state.suggestions
+        suggestions: state.suggestions,
+        user: state.user
     };
 }
 const mapDispatchToProps = {

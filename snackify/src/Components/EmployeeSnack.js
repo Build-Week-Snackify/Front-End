@@ -7,7 +7,7 @@ const EmployeeSnack = (props) => {
 
     return (
         <div>
-            {props.snacks.map(snack => (
+            {props.snackReducer.snacks.map(snack => (
                 <Snacks snack={snack} />
             ))}
         </div>
