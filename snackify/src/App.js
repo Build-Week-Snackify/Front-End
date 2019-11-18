@@ -12,6 +12,7 @@ import CompSelect from './Components/EmployeeCompSelect';
 import PrivateRoute from './Components/PrivateRoute';
 import Register from './Components/Register';
 import CompanyData from './Components/CompanyData';
+import EmployeeSnack from './Components/EmployeeSnack';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/Register' component={Register} />
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
+          <PrivateRoute exact path='/EmployeeSnack' component={EmployeeSnack} />
         </Switch>
       </Router>
     </div>

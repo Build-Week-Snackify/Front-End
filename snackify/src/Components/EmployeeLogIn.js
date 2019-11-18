@@ -46,13 +46,13 @@ function EmployeeLogin(props) {
         localStorage.setItem("token", user);
         console.log(user)
         e.preventDefault();
-        props.history.push("/CompanySelect");
+        props.history.push("/EmployeeSnack");
         axiosWithLoginAuth()
             .post(`/login`, user)
             .then(result => {
                 console.log(result)
                 localStorage.setItem("token", result.data.payload);
-                props.history.push("/CompanySelect");
+                props.history.push("/EmployeeSnack");
             })
     }
 
