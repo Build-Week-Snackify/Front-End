@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Snacks from './Snack'
 
 const EmployeeSnack = (props) => {
+    console.log(props)
 
     return (
         <div>

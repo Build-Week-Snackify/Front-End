@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { axiosWithLoginAuth } from '../Utils/axiosWithLoginAuth';
+import { connect } from "react-redux";
+import { loginUser } from "../Store/NonSnackActions"
+
 
 
 const NavStyle = styled(NavLink)`
@@ -43,17 +46,19 @@ function EmployeeLogin(props) {
         setUser({ ...user, [e.target.name]: e.target.value });
 
     const handleSubmit = (e) => {
-        localStorage.setItem("token", user);
-        console.log(user)
-        e.preventDefault();
-        props.history.push("/EmployeeSnack");
-        axiosWithLoginAuth()
-            .post(`/login`, user)
-            .then(result => {
-                console.log(result)
-                localStorage.setItem("token", result.data.payload);
-                props.history.push("/EmployeeSnack");
-            })
+        e.preventDefault()
+        props.loginUser()
+        // localStorage.setItem("token", user);
+        // console.log(user)
+        // e.preventDefault();
+        // props.history.push("/EmployeeSnack");
+        // axiosWithLoginAuth()
+        //     .post(`/login`, user)
+        //     .then(result => {
+        //         console.log(result)
+        //         localStorage.setItem("token", result.data.payload);
+        //         props.history.push("/EmployeeSnack");
+        //     })
     }
 
     return (
@@ -72,4 +77,16 @@ function EmployeeLogin(props) {
     )
 }
 
-export default EmployeeLogin
+
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        
+    };
+};
+
+const mapDispatchToProps = {
+    loginUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeLogin);

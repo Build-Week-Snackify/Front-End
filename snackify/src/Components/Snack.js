@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { addSnackToSuggestions } from '../Store/Actions'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -14,7 +15,7 @@ height: auto;
 `
 
 const Snack = (props) => {
-    console.log(props.suggestions)
+    console.log(props)
     const [details, setDetails] = useState(false);
     const [suggested, setSuggested] = useState(false);
     console.log(suggested)
@@ -34,7 +35,7 @@ const Snack = (props) => {
             </div> : null}
             <button onClick={() => setDetails(!details)} >{details ? "Show Less" : "Show Details"}</button>
             {!suggested ?
-                <button onClick={() => props.suggestions.push(props.snack.Name) && setSuggested(!suggested)}> Request </button> :
+                <button onClick={() => props.addSnackToSuggestions(props.snack) && setSuggested(!suggested)}> Request </button> :
                 <button onClick={() => props.suggestions.splice(props.suggestions.indexOf(props.snack.Name), 1) && setSuggested(!suggested)}> Cancel Request </button>
             }
         </SnackDisplay >
@@ -45,9 +46,11 @@ const Snack = (props) => {
 
 const mapStateToProps = state => {
     console.log(state)
-    return (
-        state
-    );
+    return {
+        suggestions: state.suggestions
+    };
 }
-
-export default connect(mapStateToProps, {})(Snack);
+const mapDispatchToProps = {
+    addSnackToSuggestions
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Snack);
