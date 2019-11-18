@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 function HomePage(props){
     console.log(props)
-    useEffect(() => {
-        console.log("The component has mounted.");
-      }, [props.match.params]);
+    // useEffect(() => {
+    //     console.log("The component has mounted.");
+    //   }, [props.match.params]);
 
 
     return(

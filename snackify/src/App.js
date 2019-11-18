@@ -16,9 +16,10 @@ import EmployeeSnack from './Components/EmployeeSnack';
 const App = () => {
   return (
     <div className="App">
-      <NavBar />
+      
       <Router>
-        <Switch>
+      <NavBar />
+        {/* <Switch> */}
           <Route exact path='/' component={HomePage} />
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
           <Route exact path='/CompanyLogIn' component={CompanyLogIn} />
@@ -27,7 +28,7 @@ const App = () => {
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
           <PrivateRoute exact path='/EmployeeSnack' component={EmployeeSnack} />
-        </Switch>
+        {/* </Switch> */}
       </Router>
     </div>
   );
