@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 const Navigation = styled.div`
 display: flex;
 justify-content: space-evenly;
-background-color: #D7EE9D;
-color: #FF9663
+background-color: #00a650;
+color: white;
 height:40px;
 align-items: center;
 `
