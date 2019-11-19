@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Pic = styled.img`
 width: 80%;
-height: 300px;
+height: 500px;
 `
 
 const Card = styled.div`
@@ -20,7 +20,7 @@ export default function CompEmp() {
     return (
         <div className="Page">
             <Card className="Employee">
-                <Pic src={require('./download.jpg')} />
+                <Pic src={require('../assets/images/male_avatar.png')} />
                 <h1>Employee</h1>
                 <NavLink to="/EmployeeLogIn">
                     <button>Log In</button>
@@ -28,7 +28,7 @@ export default function CompEmp() {
 
             </Card>
             <Card className="Company">
-                <Pic src={require('./s-corporation.jpg')} />
+                <Pic src={require('../assets/images/workers.png')} />
                 <h1>Company</h1>
                 <NavLink to="/CompanyLogIn" >
                     <button>Log In</button>
