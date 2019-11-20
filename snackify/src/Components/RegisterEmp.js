@@ -33,17 +33,28 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>
       <div>
+<<<<<<< HEAD
         <label>Supervisor Name
         <Field type="text" name="contactPerson" placeholder="Supervisor Name" />
+=======
+        <label>Supervisor Name/Department
+        <Field type="text" name="contactPerson" placeholder="Name/Department" />
+>>>>>>> 67a76fba6d574c5b628c111f2a06e11e31be39e1
         <div>{errors.contactPerson}</div>
         </label>
       </div>
       <div>
-        <label>Organization Name
-        <Field type="text" name="role" placeholder="Organization Name" />
+      <label>Role
+        <Field as="select" name="role">
+          <option value="none">Please choose one</option>
+          <option value="employee">Employee</option>
+          <option value="organization">Organization</option>
+          <option value="orgAdmins">Organization Admin</option>
+        </Field>  
         <div>{errors.role}</div>
         </label>
       </div>
+      
       <div>
         <label>Organization ID # (sign-up code)
         <Field type="text" name="orgId" placeholder="Organization ID" />
@@ -90,7 +101,7 @@ const FormikRegisterFormEmp = withFormik({
       password: password || "",
       fullName: fullName || "",
       contactPerson: contactPerson || "",
-      role: role || "",
+      role: role || "none",
       orgId: orgId || "",
       email: email || "",
       phoneNumber: phoneNumber || "",
@@ -103,26 +114,24 @@ const FormikRegisterFormEmp = withFormik({
     username: Yup.string().required("Please select user name"),
     password: Yup.string().required("Password requires 6 characters"),
     fullName: Yup.string().required("Please enter name"),
-    contactPerson: Yup.string().required("Please enter name"),
-    role: Yup.string().required("Please enter name"),
+    contactPerson: Yup.string().required("Please enter email"),
+    role: Yup.string().required("Please choose one"),
     orgId: Yup.string().required("Please enter Organization #"),
     email: Yup.string().required("Valid email required"),
     phoneNumber: Yup.string().required("Valid phone number required"),
     streetAddress: Yup.string().required("Please enter valid address"),
-    city: Yup.string().required("City Required"),
     state: Yup.string().required("Two letter state"),
     zipcode: Yup.string().required("Valid zip code required"),
   }),//ends validation
-  handleSubmit(values, {setStatus, resetForm}) {
-    console.log('submit')
-    // axios
-    // .post("https://snackify7.herokuapp.com/auth/register/employee", values)
-    // .then(response => {
-    //   setStatus(response.data)
-    //   console.log(response.data);
-    //   resetForm();
-    // })
-    // .catch(err => console.log(err.response));
+  handleSubmit(values, {setStatus}) {
+    console.log(values)
+    axios
+    .post("https://snackify7.herokuapp.com/auth/register/employee", values)
+    .then(response => {
+      setStatus(response.data);
+      console.log(response);
+    })
+    .catch(err => console.log(err.response));
   }
 })(RegisterFormEmp);
 

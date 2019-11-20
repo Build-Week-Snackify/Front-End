@@ -34,7 +34,12 @@ const RegisterFormOrg = ({values, errors, status }) => {
       </div>
       <div>
         <label>Role
-        <Field type="text" name="role" placeholder="Contact Name" />
+        <Field as="select" name="role">
+          <option value="none">Please choose one</option>
+          <option value="employee">Employee</option>
+          <option value="organization">Organization</option>
+          <option value="orgAdmins">Organization Admin</option>
+        </Field>  
         <div>{errors.role}</div>
         </label>
       </div>
@@ -84,7 +89,7 @@ const FormikRegisterFormOrg = withFormik({
       password: password || "",
       contactPerson: contactPerson || "",
       organizationName: organizationName || "",
-      role: role || "",
+      role: role || "none",
       email: email || "",
       phoneNumber: phoneNumber || "",
       streetAddress: streetAddress || "",
@@ -97,7 +102,7 @@ const FormikRegisterFormOrg = withFormik({
     password: Yup.string().required("Password requires 6 characters"),
     contactPerson: Yup.string().required("Please enter name"),
     organizationName: Yup.string().required("Please enter name"),
-    role: Yup.string().required("Please enter role"),
+    role: Yup.string().required("Please choose one"),
     email: Yup.string().required("Valid email required"),
     phoneNumber: Yup.string().required("Valid phone number required"),
     streetAddress: Yup.string().required("Please enter valid address"),
