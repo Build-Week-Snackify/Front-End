@@ -1,43 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import SarahSnack from "./SarahSnack";
 import { Container, Row } from "reactstrap";
 
 
 
-export default function SarahSnack() {
+export default function SnackList() {
   const [snack, setSnack] = useState ([]);
 
   useEffect(() => {
     axios
-    .get("someSnackAPI")
+    // .get("https://snackify7.herokuapp.com/snacks")
     .then(response => {
       console.log(response);
-      setPeople(response.data.results);      
+      setSnack(response.snackReducer.snacks);      
     })//ends then
     .catch(error => {
         console.log("The data was not returned", error);
     });
   }, []);//ends useEffect
 
+
+  
   return (
     <Container>
       <Row>
         {snack.map((item, index) => (
-             <StarWarsCard 
+             <SarahSnack
              key={index}
-             name={item.name}
-             type={item.type}
-             servings={item.servings}
-             weight={item.weight}
-             price={item.price}
-             //these are coming from a different API-figure out how to do them both
-             calories={item.calories}
-             fat={item.fat}
-             sugar={item.sugar}
-             protein={item.protein}
-             carbs={item.carbs}
-             allergens={item.allergens}/>
+             id={item.id}
+             image={item.Image}
+             name={item.Name}
+             price={item.Price}
+             weight={item.Weight}
+             />
         ))}
         </Row>
     </Container>

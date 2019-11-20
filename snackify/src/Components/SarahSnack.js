@@ -1,9 +1,10 @@
 import React from "react";
 import {
     Card, CardImg, CardBody,
-    CardTitle, CardSubtitle, 
+    CardTitle, CardSubtitle
   } from 'reactstrap';
 import { Col } from "reactstrap";  
+import {Link} from "react-router-dom";
 
 const SarahSnack = props => {
     console.log(props);
@@ -12,22 +13,16 @@ const SarahSnack = props => {
       <Card className="card-main">
         <CardImg
           top width="100%"
-          src= "{props.image}"
-          alt="{props.name}"
+          src= "{props.Image}"
+          alt="{props.id}"
         />
         <CardBody className ="card-container">
-          <CardTitle className ="name">Name: {props.name}</CardTitle>
-          <CardSubtitle>Type: {props.type}</CardSubtitle>
-          <CardSubtitle>Number of Servings: {props.servings}</CardSubtitle>
-          <CardSubtitle>Shipping weight{props.weight}</CardSubtitle>
-          <CardSubtitle>Price: {props.price}</CardSubtitle>
-          <CardSubtitle>Nutritional Information</CardSubtitle>
-          <CardSubtitle>Calories: {props.calories}</CardSubtitle>
-          <CardSubtitle>Fat: {props.fat}</CardSubtitle> 
-          <CardSubtitle>Sugar: {props.sugar}</CardSubtitle> 
-          <CardSubtitle>Protein: {props.protein}</CardSubtitle> 
-          <CardSubtitle>Carbs: {props.carbs}</CardSubtitle> 
-          <CardSubtitle>Allergens: {props.allergens}</CardSubtitle>          
+          <Link to={`/snacklist/${props.id}`}>
+            <CardTitle className ="name">Name: {props.Name}</CardTitle>
+            <CardSubtitle>Number of Servings: {props.servings}</CardSubtitle>
+            <CardSubtitle>Price: {props.Price}</CardSubtitle>
+            <CardSubtitle>Weight: {props.Weight}</CardSubtitle>
+          </Link>
         </CardBody>
       </Card>
     </Col>
