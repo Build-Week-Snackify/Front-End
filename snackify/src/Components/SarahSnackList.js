@@ -10,7 +10,7 @@ export default function SnackList() {
 
   useEffect(() => {
     axios
-    // .get("https://snackify7.herokuapp.com/snacks")
+    .get("https://snackify7.herokuapp.com/snacks")
     .then(response => {
       console.log(response);
       setSnack(response.snackReducer.snacks);      
@@ -26,14 +26,15 @@ export default function SnackList() {
     <Container>
       <Row>
         {snack.map((item, index) => (
+          // <Link to={`/snacklist/${item.Name}`}>
              <SarahSnack
              key={index}
-             id={item.id}
              image={item.Image}
              name={item.Name}
              price={item.Price}
              weight={item.Weight}
              />
+          // </Link>   
         ))}
         </Row>
     </Container>

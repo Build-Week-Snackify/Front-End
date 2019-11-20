@@ -8,6 +8,9 @@ import Register from './Register';
 import CompanyData from './CompanyData';
 import EmployeeSnack from './EmployeeSnack';
 import CompEmp from './CompEmp';
+import FormikRegisterFormEmp from './RegisterEmp';
+import RegisterOrg from './RegisterOrg';
+import SnackList from './SarahSnackList';
 
 export {
     HomePage,
@@ -19,5 +22,8 @@ export {
     Register,
     CompanyData,
     EmployeeSnack,
-    CompEmp
+    CompEmp,
+    FormikRegisterFormEmp,
+    RegisterOrg,
+    SnackList
 }

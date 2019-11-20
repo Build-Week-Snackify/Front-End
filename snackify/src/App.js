@@ -12,7 +12,10 @@ import {
   Register,
   CompanyData,
   EmployeeSnack,
-  CompEmp
+  CompEmp,
+  FormikRegisterFormEmp,
+  RegisterOrg,
+  SnackList
 } from './Components';
 
 const App = () => {
@@ -21,6 +24,8 @@ const App = () => {
       
       <Router>
       <NavBar />
+      
+      <SnackList />
         
           <Route exact path='/' component={HomePage} />
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />

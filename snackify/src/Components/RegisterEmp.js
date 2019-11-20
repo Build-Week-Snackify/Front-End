@@ -6,9 +6,9 @@ import axios from "axios";
 
 const RegisterFormEmp = ({values, errors, status }) => {
   const[user, setUser] = useState([]);
-  useEffect(() => {
-    status && setUser(user => [...user, status]);
-  },[]);//ends useEffect
+  // useEffect(() => {
+  //   status && setUser(user => [...user, status]);
+  // },[status]);//ends useEffect
 
 
   return (
@@ -33,8 +33,8 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>
       <div>
-        <label>Personal email
-        <Field type="text" name="contactPerson" placeholder="mypersonal@email.com" />
+        <label>Supervisor Name
+        <Field type="text" name="contactPerson" placeholder="Supervisor Name" />
         <div>{errors.contactPerson}</div>
         </label>
       </div>
@@ -77,7 +77,7 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>     
             
-      <button type="submit">Register Now</button>
+      <button type="submit" onClick={() => console.log("clicked")}>Register Now</button>
     </Form>
     {}
   </div>  
@@ -103,7 +103,7 @@ const FormikRegisterFormEmp = withFormik({
     username: Yup.string().required("Please select user name"),
     password: Yup.string().required("Password requires 6 characters"),
     fullName: Yup.string().required("Please enter name"),
-    contactPerson: Yup.string().required("Please enter email"),
+    contactPerson: Yup.string().required("Please enter name"),
     role: Yup.string().required("Please enter name"),
     orgId: Yup.string().required("Please enter Organization #"),
     email: Yup.string().required("Valid email required"),
@@ -113,14 +113,16 @@ const FormikRegisterFormEmp = withFormik({
     state: Yup.string().required("Two letter state"),
     zipcode: Yup.string().required("Valid zip code required"),
   }),//ends validation
-  handleSubmit(values, {setStatus}) {
-    axios
-    .post("https://snackify7.herokuapp.com/auth/register/employee", values)
-    .then(response => {
-      setStatus(response.data);
-      console.log(response);
-    })
-    .catch(err => console.log(err.response));
+  handleSubmit(values, {setStatus, resetForm}) {
+    console.log('submit')
+    // axios
+    // .post("https://snackify7.herokuapp.com/auth/register/employee", values)
+    // .then(response => {
+    //   setStatus(response.data)
+    //   console.log(response.data);
+    //   resetForm();
+    // })
+    // .catch(err => console.log(err.response));
   }
 })(RegisterFormEmp);
 

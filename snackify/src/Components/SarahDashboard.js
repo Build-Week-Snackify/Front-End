@@ -18,7 +18,7 @@ const Dashboard = () => {
         {/* <Route exact path="/SarahSnackList" render={(props) => (
             <SnackList {...props} items={product}/>
         )} /> */}
-        {/* <Route exact path> */}
+        {/* <Route exact path ="/snacklist/name" render=> */}
 
         </div>
 
