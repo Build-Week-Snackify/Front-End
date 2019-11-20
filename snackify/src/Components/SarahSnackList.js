@@ -5,7 +5,7 @@ import { Container, Row } from "reactstrap";
 
 
 
-export default function SarahSnack() {
+export default function SnackList() {
   const [snack, setSnack] = useState ([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function SarahSnack() {
     <Container>
       <Row>
         {snack.map((item, index) => (
-             <StarWarsCard 
+             <SarahSnack
              key={index}
              name={item.name}
              type={item.type}

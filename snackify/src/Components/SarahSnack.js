@@ -19,15 +19,8 @@ const SarahSnack = props => {
           <CardTitle className ="name">Name: {props.name}</CardTitle>
           <CardSubtitle>Type: {props.type}</CardSubtitle>
           <CardSubtitle>Number of Servings: {props.servings}</CardSubtitle>
-          <CardSubtitle>Shipping weight{props.weight}</CardSubtitle>
           <CardSubtitle>Price: {props.price}</CardSubtitle>
-          <CardSubtitle>Nutritional Information</CardSubtitle>
-          <CardSubtitle>Calories: {props.calories}</CardSubtitle>
-          <CardSubtitle>Fat: {props.fat}</CardSubtitle> 
-          <CardSubtitle>Sugar: {props.sugar}</CardSubtitle> 
-          <CardSubtitle>Protein: {props.protein}</CardSubtitle> 
-          <CardSubtitle>Carbs: {props.carbs}</CardSubtitle> 
-          <CardSubtitle>Allergens: {props.allergens}</CardSubtitle>          
+ 
         </CardBody>
       </Card>
     </Col>

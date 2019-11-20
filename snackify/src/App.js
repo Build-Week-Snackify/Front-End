@@ -12,13 +12,15 @@ import PrivateRoute from './Components/PrivateRoute';
 import Register from './Components/Register';
 import CompanyData from './Components/CompanyData';
 import EmployeeSnack from './Components/EmployeeSnack';
-import FormikRegisterForm from "./Components/SignUpEmployee";
+import FormikRegisterFormOrg from "./Components/RegisterOrg";
+import FormikRegisterFormEmp from './Components/RegisterEmp';
 
 const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <EmployeeLogIn />
+      <FormikRegisterFormOrg />
+      <FormikRegisterFormEmp />
       <Router>
         
           <Route exact path='/' component={HomePage} />
