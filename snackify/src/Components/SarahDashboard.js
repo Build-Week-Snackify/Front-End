@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 
@@ -14,10 +14,11 @@ const Dashboard = () => {
                     
                 </div>
             </nav>
-        <Route exact path="/" component={} />
-        <Route exact path="/SarahSnackList" render={(props) => (
+        {/* <Route exact path="/" component={} /> */}
+        {/* <Route exact path="/SarahSnackList" render={(props) => (
             <SnackList {...props} items={product}/>
-        )} />
+        )} /> */}
+        {/* <Route exact path> */}
 
         </div>
 

@@ -14,13 +14,15 @@ import CompanyData from './Components/CompanyData';
 import EmployeeSnack from './Components/EmployeeSnack';
 import FormikRegisterFormOrg from "./Components/RegisterOrg";
 import FormikRegisterFormEmp from './Components/RegisterEmp';
+import SnackList from "./Components/SarahSnackList";
+import SarahSnack from "./Components/SarahSnack";
 
 const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <FormikRegisterFormOrg />
-      <FormikRegisterFormEmp />
+      <FormikRegisterFormEmp/>
+      
       <Router>
         
           <Route exact path='/' component={HomePage} />

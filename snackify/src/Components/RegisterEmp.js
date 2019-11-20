@@ -28,7 +28,13 @@ const RegisterFormEmp = ({values, errors, status }) => {
       </div>
       <div>
         <label>Employee Name
-        <Field type="text" name="contactPerson" placeholder="Contact Name" />
+        <Field type="text" name="fullName" placeholder="Full Name" />
+        <div>{errors.fullName}</div>
+        </label>
+      </div>
+      <div>
+        <label>Personal email
+        <Field type="text" name="contactPerson" placeholder="mypersonal@email.com" />
         <div>{errors.contactPerson}</div>
         </label>
       </div>
@@ -40,13 +46,13 @@ const RegisterFormEmp = ({values, errors, status }) => {
       </div>
       <div>
         <label>Organization ID # (sign-up code)
-        <Field type="text" name="orgId" placeholder="Organization Name" />
+        <Field type="text" name="orgId" placeholder="Organization ID" />
         <div>{errors.orgId}</div>
         </label>
       </div>
       <div>
-        <label>Email
-        <Field type="email" name="email" placeholder="email@domain.net" />
+        <label>Work Email
+        <Field type="email" name="email" placeholder="email@work.net" />
         <div>{errors.email}</div>
         </label>
       </div>
@@ -57,13 +63,9 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>
       <div>
-        <label>Shipping Address
-        <Field type="text" name="streetAddress" placeholder="1234 Main St" />
+        <label>Shipping Address, City
+        <Field type="text" name="streetAddress" placeholder="1234 Main St, City" />
         <div>{errors.streetAddress}</div>
-        </label>
-        <label>City
-        <Field type="text" name="city" placeholder="Your City" />
-        <div>{errors.city}</div>
         </label>
         <label>State
         <Field type="text" name="state" placeholder="AA" />
@@ -82,17 +84,17 @@ const RegisterFormEmp = ({values, errors, status }) => {
   );
 };
 const FormikRegisterFormEmp = withFormik({
-  mapPropsToValues({username, password, contactPerson, role, orgId, email, phoneNumber, streetAddress, city, state, zipcode }){
+  mapPropsToValues({username, password, fullName, contactPerson, role, orgId, email, phoneNumber, streetAddress, state, zipcode }){
     return{
       username: username || "",
       password: password || "",
+      fullName: fullName || "",
       contactPerson: contactPerson || "",
       role: role || "",
       orgId: orgId || "",
       email: email || "",
       phoneNumber: phoneNumber || "",
       streetAddress: streetAddress || "",
-      city: city || "",
       state: state || "",
       zipcode: zipcode || "",
     };//ends return
@@ -100,7 +102,8 @@ const FormikRegisterFormEmp = withFormik({
   validationSchema: Yup.object().shape({
     username: Yup.string().required("Please select user name"),
     password: Yup.string().required("Password requires 6 characters"),
-    contactPerson: Yup.string().required("Please enter name"),
+    fullName: Yup.string().required("Please enter name"),
+    contactPerson: Yup.string().required("Please enter email"),
     role: Yup.string().required("Please enter name"),
     orgId: Yup.string().required("Please enter Organization #"),
     email: Yup.string().required("Valid email required"),

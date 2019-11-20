@@ -57,13 +57,9 @@ const RegisterFormOrg = ({values, errors, status }) => {
         </label>
       </div>
       <div>
-        <label>Shipping Address
-        <Field type="text" name="streetAddress" placeholder="1234 Main St" />
+        <label>Shipping Address, City
+        <Field type="text" name="streetAddress" placeholder="1234 Main St, City" />
         <div>{errors.streetAddress}</div>
-        </label>
-        <label>City
-        <Field type="text" name="city" placeholder="Your City" />
-        <div>{errors.city}</div>
         </label>
         <label>State
         <Field type="text" name="state" placeholder="AA" />
@@ -82,7 +78,7 @@ const RegisterFormOrg = ({values, errors, status }) => {
   );
 };
 const FormikRegisterFormOrg = withFormik({
-  mapPropsToValues({username, password, contactPerson, organizationName, role, email, phoneNumber, streetAddress, city, state, zipcode }){
+  mapPropsToValues({username, password, contactPerson, organizationName, role, email, phoneNumber, streetAddress, state, zipcode }){
     return{
       username: username || "",
       password: password || "",
@@ -92,7 +88,6 @@ const FormikRegisterFormOrg = withFormik({
       email: email || "",
       phoneNumber: phoneNumber || "",
       streetAddress: streetAddress || "",
-      city: city || "",
       state: state || "",
       zipcode: zipcode || "",
     };//ends return
@@ -106,7 +101,6 @@ const FormikRegisterFormOrg = withFormik({
     email: Yup.string().required("Valid email required"),
     phoneNumber: Yup.string().required("Valid phone number required"),
     streetAddress: Yup.string().required("Please enter valid address"),
-    city: Yup.string().required("City Required"),
     state: Yup.string().required("Two letter state"),
     zipcode: Yup.string().required("Valid zip code required"),
   }),//ends validation
