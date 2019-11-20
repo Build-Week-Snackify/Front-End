@@ -33,18 +33,19 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>
       <div>
-        <label>Personal email
-        <Field type="text" name="contactPerson" placeholder="mypersonal@email.com" />
+        <label>Supervisor Name/Department
+        <Field type="text" name="contactPerson" placeholder="Name/Department" />
         <div>{errors.contactPerson}</div>
         </label>
       </div>
       <div>
       <label>Role
-        <Field as="select" name="role" />
+        <Field as="select" name="role">
           <option value="none">Please choose one</option>
-          <option value="Employee">Employee</option>
-          <option value="Organization">Organization</option>
-          <option value="Organization Admin">Organization Admin</option>
+          <option value="employee">Employee</option>
+          <option value="organization">Organization</option>
+          <option value="orgAdmins">Organization Admin</option>
+        </Field>  
         <div>{errors.role}</div>
         </label>
       </div>
@@ -114,11 +115,11 @@ const FormikRegisterFormEmp = withFormik({
     email: Yup.string().required("Valid email required"),
     phoneNumber: Yup.string().required("Valid phone number required"),
     streetAddress: Yup.string().required("Please enter valid address"),
-    city: Yup.string().required("City Required"),
     state: Yup.string().required("Two letter state"),
     zipcode: Yup.string().required("Valid zip code required"),
   }),//ends validation
   handleSubmit(values, {setStatus}) {
+    console.log(values)
     axios
     .post("https://snackify7.herokuapp.com/auth/register/employee", values)
     .then(response => {

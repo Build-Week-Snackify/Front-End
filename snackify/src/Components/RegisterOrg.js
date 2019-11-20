@@ -34,11 +34,12 @@ const RegisterFormOrg = ({values, errors, status }) => {
       </div>
       <div>
         <label>Role
-        <Field as="select" name="role" />
+        <Field as="select" name="role">
           <option value="none">Please choose one</option>
-          <option value="Employee">Employee</option>
-          <option value="Organization">Organization</option>
-          <option value="Organization Admin">Organization Admin</option>
+          <option value="employee">Employee</option>
+          <option value="organization">Organization</option>
+          <option value="orgAdmins">Organization Admin</option>
+        </Field>  
         <div>{errors.role}</div>
         </label>
       </div>
