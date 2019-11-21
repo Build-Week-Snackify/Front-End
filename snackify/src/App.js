@@ -13,8 +13,9 @@ import {
   EmployeeSnack,
   CompEmp,
   FormikRegisterFormEmp,
-  RegisterOrg,
+  FormikRegisterFormOrg,
   SnackList,
+  RegistrationHome
 } from './Components';
 
 const App = () => {
@@ -24,13 +25,15 @@ const App = () => {
       <Router>
       <NavBar />
       
-      <SnackList />
+      {/* <FormikRegisterFormOrg /> */}
         
           <Route exact path='/' component={HomePage} />
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
           <Route exact path='/CompanyLogIn' component={LogIn} />
           <Route exact path='/EmployeeLogIn' component={LogIn} />
-          <Route exact path='/Register' component={FormikRegisterFormEmp} />
+          <Route exact path='/Register' component={RegistrationHome} />
+          <Route exact path='/EmployeeRegistration' component={FormikRegisterFormEmp} />
+          <Route exact path='/OrgRegistration' component={FormikRegisterFormOrg} />
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
           <PrivateRoute exact path='/EmployeeSnack' component={EmployeeSnack} />

@@ -19,8 +19,8 @@ export default function NavBar() {
     if (localStorage.getItem('token')) {
         return(
             <Navigation className='NavLink div'>
-                <NavLink to="/">NOT Home</NavLink>
-                <NavLink to="/CompanyOrEmployee">NOT Login</NavLink>
+                <NavLink to="/">Home</NavLink>
+                {/* <NavLink to="/CompanyOrEmployee">NOT Login</NavLink> */}
                 <NavLink onClick={() => localStorage.removeItem('token')}  to="/">Sign Out</NavLink>
             </Navigation>
         )

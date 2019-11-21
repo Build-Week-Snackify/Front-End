@@ -8,8 +8,9 @@ import CompanyData from './CompanyData';
 import EmployeeSnack from './EmployeeSnack';
 import CompEmp from './CompEmp';
 import FormikRegisterFormEmp from './RegisterEmp';
-import RegisterOrg from './RegisterOrg';
+import FormikRegisterFormOrg from './RegisterOrg';
 import SnackList from './SarahSnackList';
+import RegistrationHome from './RegistrationHome'
 
 export {
     HomePage,
@@ -22,6 +23,7 @@ export {
     EmployeeSnack,
     CompEmp,
     FormikRegisterFormEmp,
-    RegisterOrg,
-    SnackList
+    FormikRegisterFormOrg,
+    SnackList,
+    RegistrationHome
 }
