@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import SarahSnack from "./SarahSnack";
+import SnackCard from "./SnackCard";
 import { Container, Row } from "reactstrap";
 import {axiosWithLoginAuth} from '../Utils/axiosWithLoginAuth';
 
@@ -28,7 +28,7 @@ export default function SnackList() {
       <Row>
         {snack.map((item, index) => (
           // <Link to={`/snacklist/${item.id}`}>
-             <SarahSnack
+             <SnackCard
              key={index}
              id={item.id}
              name={item.name}

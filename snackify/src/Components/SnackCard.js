@@ -6,7 +6,7 @@ import {
 import { Col } from "reactstrap";  
 import {Link} from "react-router-dom";
 
-const SarahSnack = props => {
+const SnackCard = props => {
     // console.log(props);
   return (
     <Col xs="12" s="6" md="4">
@@ -18,14 +18,14 @@ const SarahSnack = props => {
         />
         <CardBody className ="card-container">
           {/* <Link to={`/snacklist/${props.id}`}> */}
-            <CardTitle className="name">{pname}</CardTitle>
+            <CardTitle className ="name">{props.name}</CardTitle>
             <CardSubtitle>Number of Servings: {props.numberOfServings}</CardSubtitle>
             <CardSubtitle>Price: ${props.price}</CardSubtitle>
-            <CardSubtitle>Shipping Wight: {props.totalWeight}</CardSubtitle>
+            <CardSubtitle>Shipping Weight: {props.totalWeight}</CardSubtitle>
           {/* </Link> */}
         </CardBody>
       </Card>
     </Col>
   );
 };
-export default SarahSnack;
+export default SnackCard;
