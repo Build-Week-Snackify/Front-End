@@ -11,6 +11,7 @@ const Navigation = styled.div`
   align-items: center;
   margin-bottom: 20px;
   align-items: center;
+  margin-bottom: 75px;
   background-color: rgba(0, 0, 0, 0.1);
 `;
 

@@ -22,7 +22,6 @@ const Card = styled.div`
 const Page = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 75px;
 `;
 const PageWrap = styled.div`
   width: 100%;
