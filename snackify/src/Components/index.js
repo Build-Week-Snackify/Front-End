@@ -1,8 +1,7 @@
 import HomePage from './HomePage';
 import NavBar from './NavBar';
 import PrivateRoute from './PrivateRoute'
-import CompanyLogIn from './CompanyLogIn';
-import EmployeeLogIn from './EmployeeLogIn';
+import LogIn from './LogIn';
 import CompSelect from './EmployeeCompSelect';
 import Register from './Register';
 import CompanyData from './CompanyData';
@@ -16,8 +15,7 @@ export {
     HomePage,
     NavBar,
     PrivateRoute,
-    CompanyLogIn,
-    EmployeeLogIn,
+    LogIn,
     CompSelect,
     Register,
     CompanyData,

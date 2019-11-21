@@ -7,20 +7,20 @@ import { Col } from "reactstrap";
 import {Link} from "react-router-dom";
 
 const SarahSnack = props => {
-    console.log(props);
+    // console.log(props);
   return (
     <Col xs="12" s="6" md="4">
       <Card className="card-main">
         <CardImg
           top width="100%"
-          src= "{props.Image}"
-          alt="{props.Name}"
+          src= "{props.image}"
+          alt="{props.name}"
         />
         <CardBody className ="card-container">
           {/* <Link to={`/snacklist/${props.Name}`}> */}
-            <CardTitle className ="name">Name: {props.Name}</CardTitle>
-            <CardSubtitle>Price: {props.Price}</CardSubtitle>
-            <CardSubtitle>Weight: {props.Weight}</CardSubtitle>
+            <CardTitle className ="name">Name: {props.name}</CardTitle>
+            <CardSubtitle>Price: {props.price}</CardSubtitle>
+            <CardSubtitle>Weight: {props.weight}</CardSubtitle>
           {/* </Link> */}
         </CardBody>
       </Card>

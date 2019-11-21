@@ -35,7 +35,7 @@ const H2 = styled.h2`
     margin: 30px 0 40px
 `
 
-function EmployeeLogin(props) {
+function LogIn(props) {
     const [user, setUser] = useState({
         username: '',
         password: ''
@@ -47,24 +47,24 @@ function EmployeeLogin(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.loginUser(user)
-        localStorage.setItem("token", user);
-        console.log(user)
-        e.preventDefault();
-        props.history.push("/EmployeeSnack");
-        // axiosWithLoginAuth()
-        //     .post(`/login`, user)
-        //     .then(result => {
-        //         console.log(result)
-        //         localStorage.setItem("token", result.data.payload);
-        //         props.history.push("/EmployeeSnack");
-        //     })
+         axiosWithLoginAuth()
+            .post(`auth/login/employee
+            `, user)
+            .then(result => {
+                console.log(result)
+                localStorage.setItem("token", result.data.token);
+    
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+        
+        
     }
 
     return (
         <Page>
             <Form onSubmit={handleSubmit}>
-                <H2>Employee Login</H2>
                 <label>Username: </label>
                 <Input type="text" name="username" onChange={onChange} />
                 <br />
@@ -77,16 +77,4 @@ function EmployeeLogin(props) {
     )
 }
 
-
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        
-    };
-};
-
-const mapDispatchToProps = {
-    loginUser
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeeLogin);
+export default LogIn;

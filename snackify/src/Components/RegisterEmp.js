@@ -33,13 +33,8 @@ const RegisterFormEmp = ({values, errors, status }) => {
         </label>
       </div>
       <div>
-<<<<<<< HEAD
-        <label>Supervisor Name
-        <Field type="text" name="contactPerson" placeholder="Supervisor Name" />
-=======
         <label>Supervisor Name/Department
         <Field type="text" name="contactPerson" placeholder="Name/Department" />
->>>>>>> 67a76fba6d574c5b628c111f2a06e11e31be39e1
         <div>{errors.contactPerson}</div>
         </label>
       </div>
