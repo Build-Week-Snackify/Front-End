@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 
