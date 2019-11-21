@@ -17,6 +17,8 @@ import {
   RegistrationHome,
   SnackCard,
   Snack,
+  NutritionList,
+  NutritionInfo,
   CompanyLogIn
 } from './Components';
 
@@ -28,20 +30,22 @@ const App = () => {
       
       <Router>
       <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      {/* <Snack/> */}
       
-      {/* <FormikRegisterFormOrg /> */}
+      
+      
         
           <PrivateRoute exact path='/' component={SnackList} />
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
           <Route exact path='/CompanyLogIn' render={(props) => <CompanyLogIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route exact path='/EmployeeLogIn' render={(props) => <LogIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route exact path='/Register' component={RegistrationHome} />
-          <Route exact path='/EmployeeRegistration' component={FormikRegisterFormEmp} />
-          <Route exact path='/OrgRegistration' component={FormikRegisterFormOrg} />
+          <Route exact path='/EmployeeRegistration' render={(props => <FormikRegisterFormEmp {...props} />)} />
+          <Route exact path='/OrgRegistration' render={(props => <FormikRegisterFormOrg {...props} />)} />
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
           <PrivateRoute exact path='/EmployeeSnack' component={EmployeeSnack} />
+          {/* <PrivateRoute exact path='/snacklist/${props.id}' component={SnackCard} /> */}
+          
         
       </Router>
     </div>

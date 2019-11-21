@@ -35,6 +35,7 @@ export default function SnackList() {
              numberOfServings={item.numberOfServings}
              price={item.price}
              totalWeight={item.totalWeight}
+             randomCardImage={`https://source.unsplash.com/collection/1353633/300x200?sig=${Math.random()*100}`}
              subId={item.subId}
              />
           // </Link>   

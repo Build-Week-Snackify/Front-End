@@ -12,6 +12,8 @@ import RegistrationHome from './RegistrationHome';
 import SnackList from './SnackList';
 import SnackCard from './SnackCard';
 import Snack from './Snack';
+import NutritionList from './NutritionList';
+import NutritionInfo from './NutritionInfo';
 import CompanyLogIn from './CompanyLogIn'
 
 export {
@@ -29,5 +31,7 @@ export {
     RegistrationHome,
     SnackCard,
     Snack,
+    NutritionList,
+    NutritionInfo,
     CompanyLogIn
 }

@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const RegisterFormOrg = ({ values, errors, status }) => {
+const RegisterFormOrg = ({...props}, {values, errors, status }) => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     status && setUser(user => [...user, status]);
@@ -73,7 +73,7 @@ const RegisterFormOrg = ({ values, errors, status }) => {
             <div>{errors.contactPerson}</div>
           </label>
         </div>
-        <div>
+        {/* <div>
           <label>
             Role
             <br />
@@ -85,7 +85,7 @@ const RegisterFormOrg = ({ values, errors, status }) => {
             </Field>
             <div>{errors.role}</div>
           </label>
-        </div>
+        </div> */}
         <div>
           <label>
             Organization Name
@@ -195,7 +195,7 @@ const FormikRegisterFormOrg = withFormik({
       password: password || "",
       contactPerson: contactPerson || "",
       organizationName: organizationName || "",
-      role: role || "none",
+      role: role || "organization",
       email: email || "",
       phoneNumber: phoneNumber || "",
       streetAddress: streetAddress || "",
@@ -204,7 +204,7 @@ const FormikRegisterFormOrg = withFormik({
     }; //ends return
   }, //ends mapProps
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Please select user name"),
+    username: Yup.string().required("Username requires 5 or more characters"),
     password: Yup.string().required("Password requires 6 characters"),
     contactPerson: Yup.string().required("Please enter name"),
     organizationName: Yup.string().required("Please enter name"),
@@ -224,6 +224,11 @@ const FormikRegisterFormOrg = withFormik({
       .then(response => {
         setStatus(response.data);
         console.log(response);
+        if(response.data.status === 200){
+          // props.history.push("/")
+        } else{
+          alert(response.data.error.message)
+        }
       })
       .catch(err => console.log(err.response));
   }

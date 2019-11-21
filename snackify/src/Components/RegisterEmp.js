@@ -87,7 +87,7 @@ const RegisterFormEmp = ({ values, errors, status }) => {
             <div>{errors.contactPerson}</div>
           </label>
         </div>
-        <div>
+        {/* <div>
           <label>
             Role
             <br />
@@ -99,7 +99,7 @@ const RegisterFormEmp = ({ values, errors, status }) => {
             </Field>
             <div>{errors.role}</div>
           </label>
-        </div>
+        </div> */}
 
         <div>
           <label>
@@ -213,7 +213,7 @@ const FormikRegisterFormEmp = withFormik({
       password: password || "",
       fullName: fullName || "",
       contactPerson: contactPerson || "",
-      role: role || "none",
+      role: role || "employee",
       orgId: orgId || "",
       email: email || "",
       phoneNumber: phoneNumber || "",
@@ -223,7 +223,7 @@ const FormikRegisterFormEmp = withFormik({
     }; //ends return
   }, //ends mapProps
   validationSchema: Yup.object().shape({
-    username: Yup.string().required("Please select user name"),
+    username: Yup.string().required("Username requires 5 or more characters"),
     password: Yup.string().required("Password requires 6 characters"),
     fullName: Yup.string().required("Please enter name"),
     contactPerson: Yup.string().required("Please enter email"),

@@ -18,7 +18,7 @@ const SarahSnack = props => {
         />
         <CardBody className ="card-container">
           {/* <Link to={`/snacklist/${props.id}`}> */}
-            <CardTitle className="name">{pname}</CardTitle>
+            <CardTitle className="name">{props.name}</CardTitle>
             <CardSubtitle>Number of Servings: {props.numberOfServings}</CardSubtitle>
             <CardSubtitle>Price: ${props.price}</CardSubtitle>
             <CardSubtitle>Shipping Wight: {props.totalWeight}</CardSubtitle>
