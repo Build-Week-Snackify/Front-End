@@ -1,79 +1,81 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-import { axiosWithLoginAuth } from '../Utils/axiosWithLoginAuth';
-import { connect } from 'react-redux';
-import { loginUser } from "../Store/NonSnackActions"
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { axiosWithLoginAuth } from "../Utils/axiosWithLoginAuth";
+import { connect } from "react-redux";
+import { loginUser } from "../Store/NonSnackActions";
 
-const NavStyle = styled(NavLink)`
-  padding: 0.2rem 1.2rem;
-  background: #333;
-  border-radius: 5px; 
-  text-decoration: none;
-  color: #fff;
-  margin-top: 10rem;
-`
 const Page = styled.div`
-    height:100vh;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 const Form = styled.form`
-    background: white;
-    width:30vw;
-    margin: 5% 35vw
-    border-radius: 10px;
-    border: 1px solid black;
-    height: 30vh;
-    text-align:center;
-`
+  width: 350px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 15px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+`;
 const Input = styled.input`
-    margin: 20px 10px;
-`
-const H2 = styled.h2`
-    text-align:center;
-    margin: 30px 0 40px
-`
+  border-radius: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+`;
 
 function CompanyLogIn(props) {
-    const [user, setUser] = useState({
-        username: '',
-        password: ''
+  const [user, setUser] = useState({
+    username: "",
+    password: ""
+  });
 
-    })
+  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
-    const onChange = e =>
-        setUser({ ...user, [e.target.name]: e.target.value });
+  const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithLoginAuth()
+      .post(
+        `/auth/login/organization
+            `,
+        user
+      )
+      .then(result => {
+        console.log(result);
+        localStorage.setItem("token", result.data.token);
+        props.setLoggedIn(!props.loggedIn);
+        props.history.push("/");
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-         axiosWithLoginAuth()
-            .post(`/auth/login/organization
-            `, user)
-            .then(result => {
-                console.log(result)
-                localStorage.setItem("token", result.data.token);
-                props.setLoggedIn(!props.loggedIn)
-                props.history.push('/')
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
-        
-        
-    }
-
-    return (
-        <Page>
-            <Form onSubmit={handleSubmit}>
-                <label>Username: </label>
-                <Input type="text" name="username" onChange={onChange} />
-                <br />
-                <label> Password: </label>
-                <Input name="password" type="password" onChange={onChange} />
-                <br />
-                <button>Login</button>
-            </Form>
-        </Page>
-    )
+  return (
+    <Page>
+      <h2 style={{ marginBottom: "30px" }}>Corporate Login</h2>
+      <Form onSubmit={handleSubmit}>
+        <label>Username: </label>
+        <Input type="text" name="username" onChange={onChange} />
+        <br />
+        <label> Password: </label>
+        <Input name="password" type="password" onChange={onChange} />
+        <br />
+        <button
+          style={{
+            borderRadius: "5px",
+            width: "50%",
+            alignSelf: "flex-start",
+            backgroundColor: "rgba(0,0,0,.25)"
+          }}
+        >
+          Login
+        </button>
+      </Form>
+    </Page>
+  );
 }
 
 export default CompanyLogIn;
