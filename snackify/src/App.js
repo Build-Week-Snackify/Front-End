@@ -9,14 +9,13 @@ import {
   LogIn,
   CompSelect,
   CompanyData,
-  EmployeeSnack,
+  
   CompEmp,
   FormikRegisterFormEmp,
   FormikRegisterFormOrg,
   SnackList,
   RegistrationHome,
-  SnackCard,
-  Snack,
+  SnackCard,  
   NutritionList,
   NutritionInfo,
   CompanyLogIn
@@ -43,7 +42,7 @@ const App = () => {
           <Route exact path='/OrgRegistration' render={(props => <FormikRegisterFormOrg {...props} />)} />
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
-          <PrivateRoute exact path='/EmployeeSnack' component={EmployeeSnack} />
+          
           {/* <PrivateRoute exact path='/snacklist/${props.id}' component={SnackCard} /> */}
           
         

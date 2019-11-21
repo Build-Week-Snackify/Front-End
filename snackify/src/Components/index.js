@@ -4,17 +4,17 @@ import PrivateRoute from './PrivateRoute'
 import LogIn from './LogIn';
 import CompSelect from './EmployeeCompSelect';
 import CompanyData from './CompanyData';
-import EmployeeSnack from './EmployeeSnack';
+
 import CompEmp from './CompEmp';
 import FormikRegisterFormEmp from './RegisterEmp';
 import FormikRegisterFormOrg from './RegisterOrg';
 import RegistrationHome from './RegistrationHome';
 import SnackList from './SnackList';
 import SnackCard from './SnackCard';
-import Snack from './Snack';
 import NutritionList from './NutritionList';
 import NutritionInfo from './NutritionInfo';
-import CompanyLogIn from './CompanyLogIn'
+import CompanyLogIn from './CompanyLogIn';
+import Subscription from './Subscription';
 
 export {
     HomePage,
@@ -23,15 +23,15 @@ export {
     LogIn,
     CompSelect,
     CompanyData,
-    EmployeeSnack,
+    
     CompEmp,
     FormikRegisterFormEmp,
     FormikRegisterFormOrg,
     SnackList,
     RegistrationHome,
     SnackCard,
-    Snack,
     NutritionList,
     NutritionInfo,
-    CompanyLogIn
+    CompanyLogIn,
+    Subscription
 }

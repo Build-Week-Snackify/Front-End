@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const RegisterFormOrg = ({...props}, {values, errors, status }) => {
+const RegisterFormOrg = ({values, errors, status }) => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     status && setUser(user => [...user, status]);
@@ -235,3 +235,4 @@ const FormikRegisterFormOrg = withFormik({
 })(RegisterFormOrg);
 
 export default FormikRegisterFormOrg;
+

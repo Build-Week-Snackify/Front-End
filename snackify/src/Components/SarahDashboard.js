@@ -4,8 +4,11 @@ import React, {useState, useEffect} from "react";
 
 
 const Dashboard = () => {
-    const[product, setProduct] = useState([]);
-
+    const[subscription, setSubscription] = useState([]);
+    
+    const addToSubscription = item => {
+        setSubscription([...subscription, item]);
+    };
     return(
         <div className="dashboard">
             <nav>

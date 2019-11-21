@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../css/SnackCard.css"
@@ -27,6 +27,8 @@ const SnackCard = props => {
           </CardSubtitle>
           <CardSubtitle>Price: ${props.price}</CardSubtitle>
           <CardSubtitle>Shipping Weight (lbs): {props.totalWeight}</CardSubtitle>
+          <Button className="save">Add to Subscription</Button>
+          <Button className="buy">One Time Purchase(buy now)</Button>
         </CardBody>
         </Link>
       </Card>
