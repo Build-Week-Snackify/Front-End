@@ -15,13 +15,19 @@ align-items: center;
 
 
 
-export default function NavBar() {
+export default function NavBar(props) {
+    
+    const logout = () => {
+        localStorage.removeItem('token');
+        props.setLoggedIn(!props.loggedIn)
+    }
+
     if (localStorage.getItem('token')) {
         return(
             <Navigation className='NavLink div'>
                 <NavLink to="/">Home</NavLink>
                 {/* <NavLink to="/CompanyOrEmployee">NOT Login</NavLink> */}
-                <NavLink onClick={() => localStorage.removeItem('token')}  to="/">Sign Out</NavLink>
+                <NavLink onClick={logout}  to="/">Sign Out</NavLink>
             </Navigation>
         )
     }

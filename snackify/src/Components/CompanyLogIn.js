@@ -3,8 +3,16 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { axiosWithLoginAuth } from '../Utils/axiosWithLoginAuth';
 import { connect } from 'react-redux';
+import { loginUser } from "../Store/NonSnackActions"
 
-
+const NavStyle = styled(NavLink)`
+  padding: 0.2rem 1.2rem;
+  background: #333;
+  border-radius: 5px; 
+  text-decoration: none;
+  color: #fff;
+  margin-top: 10rem;
+`
 const Page = styled.div`
     height:100vh;
 `
@@ -25,35 +33,37 @@ const H2 = styled.h2`
     margin: 30px 0 40px
 `
 
-function CompanyLogin(props) {
-    console.log(props)
+function CompanyLogIn(props) {
     const [user, setUser] = useState({
         username: '',
-        password: '',
-        company: false
+        password: ''
+
     })
 
     const onChange = e =>
         setUser({ ...user, [e.target.name]: e.target.value });
 
     const handleSubmit = (e) => {
-        localStorage.setItem("token", user);
-        console.log(user)
-        e.preventDefault();
-        props.history.push("/CompanyData");
-        axiosWithLoginAuth()
-            .post(`/login`, user)
+        e.preventDefault()
+         axiosWithLoginAuth()
+            .post(`/auth/login/organization
+            `, user)
             .then(result => {
                 console.log(result)
-                localStorage.setItem("SnackToken", result.data.payload);
-                props.history.push("/CompanyData");
+                localStorage.setItem("token", result.data.token);
+                props.setLoggedIn(!props.loggedIn)
+                props.history.push('/')
             })
+            .catch(err => {
+                console.log(err.message)
+            })
+        
+        
     }
 
     return (
         <Page>
             <Form onSubmit={handleSubmit}>
-                <H2>Admin Login</H2>
                 <label>Username: </label>
                 <Input type="text" name="username" onChange={onChange} />
                 <br />
@@ -66,12 +76,4 @@ function CompanyLogin(props) {
     )
 }
 
-
-const mapStateToProps = state => {
-    return {
-
-    };
-}
-
-export default connect(mapStateToProps, {})(CompanyLogin);
-
+export default CompanyLogIn;

@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Pic = styled.img`
-width: 80%;
-height: 500px;
+height: 300px;
 `
 
 const Card = styled.div`
@@ -14,13 +13,21 @@ margin: auto;
 margin-top: 3%;
 margin-bottom: 1%;
 backgroundImage: './download.jpg';
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+const Page = styled.div`
+    display: flex;
 `
 
 export default function RegistrationHome() {
     return (
-        <div className="Page">
+        <Page>
+            <h2>Registration</h2>
             <Card className="Employee">
-                <Pic src={require('../assets/images/male_avatar.png')} />
+                <div><Pic src={require('../assets/images/male_avatar.png')} /></div>
                 <h1>Employee</h1>
                 <NavLink to="/EmployeeRegistration">
                     <button>Sign Up</button>
@@ -34,6 +41,6 @@ export default function RegistrationHome() {
                     <button>Sign Up</button>
                 </NavLink>
             </Card>
-        </div>
+        </Page>
     )
 }

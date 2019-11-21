@@ -27,13 +27,15 @@ export default function SnackList() {
     <Container>
       <Row>
         {snack.map((item, index) => (
-          // <Link to={`/snacklist/${item.Name}`}>
+          // <Link to={`/snacklist/${item.id}`}>
              <SarahSnack
              key={index}
-             image={item.image}
+             id={item.id}
              name={item.name}
+             numberOfServings={item.numberOfServings}
              price={item.price}
-             weight={item.weight}
+             totalWeight={item.totalWeight}
+             subId={item.subId}
              />
           // </Link>   
         ))}

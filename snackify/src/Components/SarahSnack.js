@@ -13,14 +13,15 @@ const SarahSnack = props => {
       <Card className="card-main">
         <CardImg
           top width="100%"
-          src= "{props.image}"
-          alt="{props.name}"
+          src= "../assets/images/food.png"
+          alt="{props.id}"
         />
         <CardBody className ="card-container">
-          {/* <Link to={`/snacklist/${props.Name}`}> */}
+          {/* <Link to={`/snacklist/${props.id}`}> */}
             <CardTitle className ="name">Name: {props.name}</CardTitle>
-            <CardSubtitle>Price: {props.price}</CardSubtitle>
-            <CardSubtitle>Weight: {props.weight}</CardSubtitle>
+            <CardSubtitle>Number of Servings: {props.numberOfServings}</CardSubtitle>
+            <CardSubtitle>Price: ${props.price}0</CardSubtitle>
+            <CardSubtitle>Shipping Weight: {props.totalWeight}</CardSubtitle>
           {/* </Link> */}
         </CardBody>
       </Card>

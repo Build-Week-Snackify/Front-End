@@ -10,6 +10,7 @@ function HomePage(props){
 
     return(
         <h1>WELCOME TO SNACKIFY!</h1>
+
     )
 }
 

@@ -53,7 +53,8 @@ function LogIn(props) {
             .then(result => {
                 console.log(result)
                 localStorage.setItem("token", result.data.token);
-    
+                props.setLoggedIn(!props.loggedIn)
+                props.history.push('/')
             })
             .catch(err => {
                 console.log(err.message)

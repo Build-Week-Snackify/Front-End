@@ -10,7 +10,9 @@ import CompEmp from './CompEmp';
 import FormikRegisterFormEmp from './RegisterEmp';
 import FormikRegisterFormOrg from './RegisterOrg';
 import SnackList from './SarahSnackList';
-import RegistrationHome from './RegistrationHome'
+import RegistrationHome from './RegistrationHome';
+import SarahSnackList from './SarahSnackList';
+import CompanyLogIn from './CompanyLogIn'
 
 export {
     HomePage,
@@ -25,5 +27,7 @@ export {
     FormikRegisterFormEmp,
     FormikRegisterFormOrg,
     SnackList,
-    RegistrationHome
+    RegistrationHome,
+    SarahSnackList,
+    CompanyLogIn
 }

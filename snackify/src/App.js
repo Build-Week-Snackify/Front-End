@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import './App.css';
@@ -15,22 +15,27 @@ import {
   FormikRegisterFormEmp,
   FormikRegisterFormOrg,
   SnackList,
-  RegistrationHome
+  RegistrationHome,
+  SarahSnackList,
+  CompanyLogIn
 } from './Components';
 
 const App = () => {
+  const [loggedIn, setLoggedIn] = useState("")
+
   return (
     <div className="App">
       
       <Router>
-      <NavBar />
+      <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      {/* <SarahSnackList /> */}
       
       {/* <FormikRegisterFormOrg /> */}
         
-          <Route exact path='/' component={HomePage} />
+          <PrivateRoute exact path='/' component={SarahSnackList} />
           <Route exact path='/CompanyOrEmployee' component={CompEmp} />
-          <Route exact path='/CompanyLogIn' component={LogIn} />
-          <Route exact path='/EmployeeLogIn' component={LogIn} />
+          <Route exact path='/CompanyLogIn' render={(props) => <CompanyLogIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+          <Route exact path='/EmployeeLogIn' render={(props) => <LogIn {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route exact path='/Register' component={RegistrationHome} />
           <Route exact path='/EmployeeRegistration' component={FormikRegisterFormEmp} />
           <Route exact path='/OrgRegistration' component={FormikRegisterFormOrg} />
