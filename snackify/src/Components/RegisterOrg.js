@@ -10,7 +10,7 @@ const RegisterFormOrg = ({ values, errors, status }) => {
   }, []); //ends useEffect
 
   const style = {
-    margin: "-55px auto 0px",
+    margin: "0px auto 0px",
     padding: "30px 40px",
     borderRadius: "5px",
     boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
@@ -31,6 +31,9 @@ const RegisterFormOrg = ({ values, errors, status }) => {
 
   return (
     <div className="register-form-org">
+      <h1 style={{ textAlign: "center", marginTop: "-15px" }}>
+        Corporate Registration
+      </h1>
       <Form style={style}>
         <div>
           <label>
