@@ -13,7 +13,7 @@ const SnackCard = props => {
     <Col xs="12" s="6" md="4">
       <Card className="card-main"
       >
-        <Link to={`/snacklist/${props.id}`}>
+        {/* <Link to={`/snacklist/${props.id}`}> */}
         <CardImg
           top
           width="100%"
@@ -27,10 +27,10 @@ const SnackCard = props => {
           </CardSubtitle>
           <CardSubtitle>Price: ${props.price}</CardSubtitle>
           <CardSubtitle>Shipping Weight (lbs): {props.totalWeight}</CardSubtitle>
-          <Button className="save">Add to Subscription</Button>
-          <Button className="buy">One Time Purchase(buy now)</Button>
+          <Button className="save" onClick={()=>{alert("This item has been added to your subscription");}} >Add to Subscription</Button>
+          <Button className="buy" onClick={()=>{alert("Thank you for your one time purchase!");}}>One Time Purchase</Button>
         </CardBody>
-        </Link>
+        {/* </Link> */}
       </Card>
     </Col>
   );

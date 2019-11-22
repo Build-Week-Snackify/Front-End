@@ -43,7 +43,7 @@ const App = () => {
           <PrivateRoute exact path='/Company-Select' component={CompSelect} />
           <PrivateRoute exact path='/CompanyData' component={CompanyData} />
           
-          {/* <PrivateRoute exact path='/snacklist/${props.id}' component={SnackCard} /> */}
+
           
         
       </Router>

@@ -8,7 +8,8 @@ import {axiosWithLoginAuth} from '../Utils/axiosWithLoginAuth';
 
 export default function SnackList() {
   const [snack, setSnack] = useState ([]);
-
+  
+  
   useEffect(() => {
     axiosWithLoginAuth()
     .get("/snacks")
