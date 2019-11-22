@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux';
 import { snackReducer } from './Store/Reducers';
 import { NonSnackReducer } from './Store/NonSnackReducers'
@@ -9,6 +9,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 

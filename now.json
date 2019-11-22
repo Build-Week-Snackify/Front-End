@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "name": "Snackify",
+    "builds": [
+      {
+        "src": "snackify/package.json",
+        "use": "@now/static-build",
+        "config": { "distDir": "build" }
+      }
+    ],
+    "routes": [
+      { "src": "/static/(.*)", "dest": "snackify/static/$1" },
+      { "src": "/(.*)", "dest": "snackify/index.html" }
+    ]
+  }

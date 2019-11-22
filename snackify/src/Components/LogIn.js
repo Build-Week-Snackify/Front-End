@@ -26,7 +26,7 @@ const Input = styled.input`
   border: solid 1px rgba(0, 0, 0, 0.2);
 `;
 
-function CompanyLogIn(props) {
+function LogIn(props) {
   const [user, setUser] = useState({
     username: "",
     password: ""
@@ -38,7 +38,7 @@ function CompanyLogIn(props) {
     e.preventDefault();
     axiosWithLoginAuth()
       .post(
-        `/auth/login/organization
+        `auth/login/employee
             `,
         user
       )
@@ -55,7 +55,7 @@ function CompanyLogIn(props) {
 
   return (
     <Page>
-      <h2 style={{ marginBottom: "30px" }}>Corporate Login</h2>
+      <h2 style={{ marginBottom: "30px" }}>Employee Login</h2>
       <Form onSubmit={handleSubmit}>
         <label>Username: </label>
         <Input type="text" name="username" onChange={onChange} />
@@ -78,4 +78,4 @@ function CompanyLogIn(props) {
   );
 }
 
-export default CompanyLogIn;
+export default LogIn;

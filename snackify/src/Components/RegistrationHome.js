@@ -17,10 +17,12 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const Page = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const PageWrap = styled.div`
   width: 100%;
   display: flex;
@@ -28,28 +30,28 @@ const PageWrap = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function CompEmp() {
+export default function RegistrationHome() {
   return (
     <Page>
-      <h2 style={{ textAlign: "center" }}>Log In</h2>
+      <h2 style={{ textAlign: "center" }}>Registration</h2>
       <PageWrap>
         <Card className="Employee">
           <div>
             <Pic src={require("../assets/images/male_avatar.png")} />
           </div>
           <h1>Employee</h1>
-          <NavLink to="/EmployeeLogIn">
+          <NavLink to="/EmployeeRegistration">
             <button style={{ borderRadius: "5px", marginTop: "10px" }}>
-              Log In
+              Sign Up
             </button>
           </NavLink>
         </Card>
         <Card className="Company">
           <Pic src={require("../assets/images/workers.png")} />
           <h1>Company</h1>
-          <NavLink to="/CompanyLogIn">
+          <NavLink to="/OrgRegistration">
             <button style={{ borderRadius: "5px", marginTop: "10px" }}>
-              Log In
+              Sign Up
             </button>
           </NavLink>
         </Card>
